@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-map.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/geodata/custom/world/world.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-data-adapter.min.js"></script>
+    <script src="App.js" type="text/javascript"></script>
+    <title>PROVENTIUM</title>
+
+    <script src= "http://code.jquery.com/jquery-latest.js"></script>
+    <script src= "header.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <img src="./Graficas/BBVA_.PNG" alt="logo" class="logo">
+    </header>
+    <div class="div_text"> 
+        <div class="text"> 
+            <h3>PROVENTIUM</h3>
+            Para dar solución a la problemática de escuchar las necesidades y obtener un constante “feedback” de los usuarios, proponemos una solución basada en “social media listening” que consiste de un pipeline de recolección, identificación, limpieza y estructuración de datos generados por medio de la red social Twitter, el sistema de comentarios de Play store y mediante algoritmos de Inteligencia Artificial identificar esos tópicos para generar una respuestas, propuestas o acciones con modelos transformer pre-entrenados.</div>
+        </div>
+    <div class="containerclass">
+        <div id="container2"></div> 
+    </div>
+    
+    <div class="title_st"><h1 >Sentimiento en el tiempo</h1></div>            
+    <div class="title_td"><h1>Tuits por día</h1></div>
+    <div class="iframec1">
+        <iframe src="./Graficas/Sentimiento_Dia.html" frameBorder="0" width="700px" height="600px"></iframe>
+    </div>
+    <div class="iframec2">
+        <iframe  src="./Graficas/Twits_Dia.html" frameBorder="0" width="700px" height="600px"></iframe>
+    </div>
+      
+
+    
+    <footer id="main-footer">
+        
+	</footer>
+
+    <div class="modal-container" id="modal_container">
+        <div class="modal">
+            <button id="close" class="btn-close">X</button>
+            <h1 id="ciudadModal" class="nombre-ciudad"></h1>
+
+            <div class="tabs">
+                <div class="tab-header">
+                    <div class="active">
+                        <i class="fa"></i> Información general
+                    </div>
+                    <div>
+                        <i class="fa"></i> Crecer en clientes
+                    </div>
+                    <div>
+                        <i class="fa"></i> Excelencia operativa
+                    </div>
+                    <div>
+                        <i class="fa"></i> Futuro sostenbible
+                    </div>
+                </div>
+
+                <div class="tab-indicator">
+
+                </div>
+
+                <div class="tab-body">
+                    <div class="informacion active">
+                        <div class="caja1">
+                                <section class="forms">
+                                    <textarea type="text" id="question" name="info" class="controls" cols="5" rows="5" placeholder="Ingrese su pregunta"></textarea>
+                                    <button id="peticion" class="btn-continuar" onclick="consulta()">Preguntar</button> 
+                                    <textarea id="answer" class="controls" placeholder="Respuesta" cols="5" rows="8"></textarea>
+                                </section>
+                        </div>
+                        <div class="caja2">
+                            <img src="./Graficas/A.png" id="word-general" width="100%"  height="100%">
+                        </div>
+                    </div>
+
+                    <div class="informacion" >
+                        <div class="caja1">
+                            <div class="rbotones">
+                                <label class="label"><input type="radio" class="radio" name="drone" value="positivo" 
+                                    checked onclick="mostrarCCpos()" >Positivo</label>
+                                <label class="label"><input type="radio" class="radio" name="drone" value="negativo" onclick="mostrarCCneg()"> Negativo</label> 
+                            </div>
+                            <iframe src="./Graficas/Grafica1.html" frameborder="0" id="data-crecer-cliente" width="100%"  height="100%"></iframe>
+                        </div>
+
+                        <div class="caja2">
+                                <div class="lista">
+                                    <select id="cbxLenguajes" class="select-css" onchange="seleccionarNubeCC();">
+                                        <option value="@">Cluster @</option>
+                                        <option value="A">Cluster A</option>
+                                        <option value="B">Cluster B</option>
+                                    </select>
+                                </div>
+                            <img src="./Graficas/A.png" id="word-crecer-cliente" width="100%"  height="100%">
+                        </div>
+                    </div>
+
+                    <div class="informacion">
+                        <div class="caja1">
+                            <div class="rbotones">
+                                <label class="label"><input type="radio" class="radio" name="drone" value="positivo" onclick="mostrarEOpos()" checked>Positivo</label>
+                                <label class="label"><input type="radio" class="radio" name="drone" value="negativo" onclick="mostrarEOneg()"> Negativo</label> 
+                            </div>
+                            <iframe src="./Graficas/Grafica1.html" frameborder="0" id="data-excelencia-operativa" width="100%"  height="100%"></iframe>
+                        </div>
+
+                        <div class="caja2">
+                                <div class="lista">
+                                    <select id="cbxLenguajesEO" class="select-css" onchange="seleccionarNubeEO();">
+                                        <option value="@">Cluster @</option>
+                                        <option value="A">Cluster A</option>
+                                        <option value="B">Cluster B</option>
+                                    </select>
+                                </div>
+                            <img src="./Graficas/A.png" id="word-excelencia-operativa" width="100%"  height="100%">
+                        </div>
+                    </div>
+
+                    <div class="informacion">
+                        <div class="caja1">
+                            <iframe src="./Graficas/Grafica1.html" frameborder="0" id="data-futuro-sostenible" width="100%"  height="100%"></iframe>
+                        </div>
+
+                        <div class="caja2">
+                                <div class="lista">
+                                    <select id="cbxLenguajesFS" class="select-css" onchange="seleccionarNubeFS();">
+                                        <option value="@">Cluster @</option>
+                                        <option value="A">Cluster A</option>
+                                        <option value="B">Cluster B</option>
+                                    </select>
+                                </div>
+                            <img src="./Graficas/A.png" id="word-futuro-sostenible" width="100%"  height="100%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
